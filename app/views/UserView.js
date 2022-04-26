@@ -1,3 +1,5 @@
+const UserService = require('./../services/UserService')
+
 class UserView{
     static createUser(payload){
         if (!payload) {
@@ -5,8 +7,7 @@ class UserView{
         }else if(!payload.username || !payload.username || !payload.id){
             return {error: 'necesitan tener un valor válido'};
         }
-        
-        return true;
+        return UserService.create(payload.id, payload.username, payload.name)
     }
 }
 
